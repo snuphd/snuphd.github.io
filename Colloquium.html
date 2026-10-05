@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathematical Sciences Colloquium Series — Shiv Nadar IoE</title>
+  <style>
+    :root {
+      --primary: #003366;
+      --secondary: #0056b3;
+      --bg: #f4f7f9;
+      --card-bg: #ffffff;
+      --text: #222222;
+      --muted: #555555;
+      --border: #e1e8ed;
+    }
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.5; padding: 20px; }
+    
+    header { max-width: 1200px; margin: 0 auto 30px auto; background: var(--primary); color: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center; }
+    header h1 { font-size: 2rem; margin-bottom: 8px; }
+    header p { font-size: 1.1rem; opacity: 0.9; }
+    
+    .filter-container { max-width: 1200px; margin: 0 auto 20px auto; display: flex; justify-content: space-between; align-items: center; background: white; padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .search-input { width: 100%; max-width: 400px; padding: 10px 15px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.95rem; outline: none; }
+    .search-input:focus { border-color: var(--secondary); }
+    .talk-count { font-weight: 600; color: var(--primary); }
+
+    .grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; }
+    
+    .card { background: var(--card-bg); border-radius: 10px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.04); transition: transform 0.2s ease, box-shadow 0.2s ease; display: flex; flex-direction: column; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    
+    .poster-img-wrapper { width: 100%; height: 380px; background: #e9ecef; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); }
+    .poster-img-wrapper img { width: 100%; height: 100%; object-fit: contain; background: #1a1a1a; }
+    
+    .card-body { padding: 18px; flex-grow: 1; display: flex; flex-direction: column; }
+    .talk-num { display: inline-block; background: #e6f0fa; color: var(--primary); font-weight: bold; font-size: 0.8rem; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; width: fit-content; }
+    .talk-title { font-size: 1.05rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; line-height: 1.35; }
+    .speaker-name { font-size: 0.95rem; font-weight: 600; color: #111; margin-bottom: 4px; }
+    .speaker-affiliation { font-size: 0.85rem; color: var(--muted); margin-bottom: 12px; }
+    .talk-date { margin-top: auto; font-size: 0.85rem; font-weight: 600; color: #444; background: #f8f9fa; padding: 6px 10px; border-radius: 4px; text-align: right; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Department of Mathematics</h1>
+    <p>Mathematical Sciences Colloquium Talks — Chronological Order (2022 – 2026)</p>
+  </header>
+
+  <div class="filter-container">
+    <input type="text" id="searchInput" class="search-input" placeholder="Search by speaker, title, or date..." onkeyup="filterTalks()">
+    <span class="talk-count" id="talkCount">Showing 30 Talks</span>
+  </div>
+
+  <div class="grid" id="talksGrid">
+
+    <!-- Talk 1 -->
+    <div class="card" data-search="ravindra bapat glimpse spectral graph theory">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1J0QQi3FBKmyaVao17LRBW9WvzjicsYnx&sz=w800" alt="Prof. Ravindra B. Bapat">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #1</span>
+        <h2 class="talk-title">A glimpse of spectral graph theory</h2>
+        <div class="speaker-name">Prof. Ravindra B. Bapat</div>
+        <div class="speaker-affiliation">INSA Fellow, ISI Delhi & Adjunct Prof., Ashoka University</div>
+        <div class="talk-date">📅 08.09.2022</div>
+      </div>
+    </div>
+
+    <!-- Talk 2 -->
+    <div class="card" data-search="niladri chatterjee decision making rough sets">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1WCiRDjGWPHKhamtMNVkliSo54W-yrA-k&sz=w800" alt="Prof. Niladri Chatterjee">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #2</span>
+        <h2 class="talk-title">Decision-Making using Rough Sets</h2>
+        <div class="speaker-name">Prof. Niladri Chatterjee</div>
+        <div class="speaker-affiliation">Soumitra Dutta Chair Prof. of AI, Dept. of Mathematics, IIT Delhi</div>
+        <div class="talk-date">📅 20.10.2022</div>
+      </div>
+    </div>
+
+    <!-- Talk 3 -->
+    <div class="card" data-search="tssrk rao geometry banach spaces">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1qs2dwms1uXF9FnfZhoEIz7yfqV-lqx-S&sz=w800" alt="Prof. TSSRK Rao">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #3</span>
+        <h2 class="talk-title">An invitation to the geometry of Banach spaces</h2>
+        <div class="speaker-name">Prof. TSSRK Rao</div>
+        <div class="speaker-affiliation">Distinguished Professor, Dept. of Mathematics, Shiv Nadar IoE</div>
+        <div class="talk-date">📅 24.11.2022</div>
+      </div>
+    </div>
+
+    <!-- Talk 4 -->
+    <div class="card" data-search="pradeep dubey game representations shapley value">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1Hf5b9uqP5yJfhaPCB9ONMG8x9hxytTIl&sz=w800" alt="Prof. Pradeep Dubey">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #4</span>
+        <h2 class="talk-title">Game Representations & Extensions of the Shapley Value</h2>
+        <div class="speaker-name">Prof. Pradeep Dubey</div>
+        <div class="speaker-affiliation">Leading Professor, Dept. of Economics, Stony Brook University</div>
+        <div class="talk-date">📅 15.12.2022</div>
+      </div>
+    </div>
+
+    <!-- Talk 5 -->
+    <div class="card" data-search="raghavan banach spaces game theory">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1etrIWNYNXgzqDLgo6EFgLbwMnNfC2kmb&sz=w800" alt="Prof. T. E.S. Raghavan">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #5</span>
+        <h2 class="talk-title">Cones in real Banach spaces and the spectral theory of positive operators via Game theory</h2>
+        <div class="speaker-name">Prof. T. E.S. Raghavan</div>
+        <div class="speaker-affiliation">Emeritus Professor, University of Illinois at Chicago</div>
+        <div class="talk-date">📅 06.02.2023</div>
+      </div>
+    </div>
+
+    <!-- Talk 6 -->
+    <div class="card" data-search="karmeshu stochastic modelling socio technical systems">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1w40eJulaHEgk4m14cb39oIrL3oiwErSV&sz=w800" alt="Prof. Karmeshu">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #6</span>
+        <h2 class="talk-title">Stochastic Modelling of Socio-technical Systems</h2>
+        <div class="speaker-name">Prof. Karmeshu</div>
+        <div class="speaker-affiliation">UPES, Dehradun</div>
+        <div class="talk-date">📅 16.02.2023</div>
+      </div>
+    </div>
+
+    <!-- Talk 7 -->
+    <div class="card" data-search="eknath ghate galois representations tifr">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1iPmhOk_3pAow_QPv1P3ITeQW6LolKO87&sz=w800" alt="Prof. Eknath Prabhakar Ghate">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #7</span>
+        <h2 class="talk-title">Galois Representations</h2>
+        <div class="speaker-name">Prof. Eknath Prabhakar Ghate</div>
+        <div class="speaker-affiliation">Tata Institute of Fundamental Research (TIFR), Mumbai</div>
+        <div class="talk-date">📅 09.03.2023</div>
+      </div>
+    </div>
+
+    <!-- Talk 8 -->
+    <div class="card" data-search="adrijit goswami optimization supply chain iit kharagpur">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1qlqRqhXaende5ZxwrQMPmLB_pSrCXioS&sz=w800" alt="Prof. Adrijit Goswami">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #8</span>
+        <h2 class="talk-title">Optimization of vehicle speed for batches to minimize supply chain cost under uncertain demand</h2>
+        <div class="speaker-name">Prof. Adrijit Goswami</div>
+        <div class="speaker-affiliation">Indian Institute of Technology (IIT) Kharagpur</div>
+        <div class="talk-date">📅 29.03.2023</div>
+      </div>
+    </div>
+
+    <!-- Talk 9 -->
+    <div class="card" data-search="indranil biswas geometric structures manifolds tifr">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=13FrVbVQOLZZxCAtjlYR_W3dh0Yqv8HRD&sz=w800" alt="Prof. Indranil Biswas">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #9</span>
+        <h2 class="talk-title">Geometric structures on manifolds</h2>
+        <div class="speaker-name">Prof. Indranil Biswas</div>
+        <div class="speaker-affiliation">Tata Institute of Fundamental Research (TIFR), Mumbai</div>
+        <div class="talk-date">📅 12.04.2023</div>
+      </div>
+    </div>
+
+    <!-- Talk 10 -->
+    <div class="card" data-search="s k neogy matrix classes linear complementarity lemke algorithm">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1tJa-841bOJ6LhT2KpjbyuD3LS9gx6_9u&sz=w800" alt="Prof. S. K. Neogy">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #10</span>
+        <h2 class="talk-title">On Special Matrix Classes in Linear Complementarity Theory and Lemke's Algorithm</h2>
+        <div class="speaker-name">Prof. S. K. Neogy</div>
+        <div class="speaker-affiliation">Indian Statistical Institute (ISI), Delhi Centre</div>
+        <div class="talk-date">📅 28.09.2023</div>
+      </div>
+    </div>
+
+    <!-- Talk 11 -->
+    <div class="card" data-search="sandeep sen multiplicative spanners weighted graphs">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1M1r4eL_iQIHRkFAvfgaobYA3Nvq_EZM5&sz=w800" alt="Prof. Sandeep Sen">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #11</span>
+        <h2 class="talk-title">Optimal sized multiplicative spanners of weighted graphs</h2>
+        <div class="speaker-name">Prof. Sandeep Sen</div>
+        <div class="speaker-affiliation">Dean, SOE & Senior Prof., Computer Sc. & Engg., Shiv Nadar IoE</div>
+        <div class="talk-date">📅 18.10.2023</div>
+      </div>
+    </div>
+
+    <!-- Talk 12 -->
+    <div class="card" data-search="rajeeva karandikar partial differential equations diffusion processes cmi">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=14e9KrkdqHo43tzpTu_LmGWr34NjjK1e2&sz=w800" alt="Prof. Rajeeva Laxman Karandikar">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #12</span>
+        <h2 class="talk-title">On Connections between Partial Differential Equations and Diffusion Processes</h2>
+        <div class="speaker-name">Prof. Rajeeva Laxman Karandikar</div>
+        <div class="speaker-affiliation">Professor Emeritus, Chennai Mathematical Institute (CMI)</div>
+        <div class="talk-date">📅 23.11.2023</div>
+      </div>
+    </div>
+
+    <!-- Talk 13 -->
+    <div class="card" data-search="amit kumar k server problem iit delhi">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=10l6OjhoaAg7p5BrXIKcR25hRSAO79rCi&sz=w800" alt="Prof. Amit Kumar">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #13</span>
+        <h2 class="talk-title">Recent progress on the k-server problem</h2>
+        <div class="speaker-name">Prof. Amit Kumar</div>
+        <div class="speaker-affiliation">Indian Institute of Technology (IIT), Delhi</div>
+        <div class="talk-date">📅 30.11.2023</div>
+      </div>
+    </div>
+
+    <!-- Talk 14 -->
+    <div class="card" data-search="martinez legaz quasiconvex minimization closed convex cones">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1Y6LsT1G0_6jRFRsjvoSkE-k8gFKCPg6_&sz=w800" alt="Prof. Juan Enrique Martinez-Legaz">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #14</span>
+        <h2 class="talk-title">Duality for Quasiconvex Minimization over Closed Convex Cones</h2>
+        <div class="speaker-name">Prof. Juan Enrique Martinez-Legaz</div>
+        <div class="speaker-affiliation">Emeritus Professor, Universitat Autònoma de Barcelona, Spain</div>
+        <div class="talk-date">📅 18.01.2024</div>
+      </div>
+    </div>
+
+    <!-- Talk 15 -->
+    <div class="card" data-search="kapil paranjape abel jacobi iiser mohali">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1yAaANSmLM4MhhV12FcbQvqB6RBb1dxpK&sz=w800" alt="Prof. Kapil Hari Paranjape">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #15</span>
+        <h2 class="talk-title">Beyond Abel and Jacobi</h2>
+        <div class="speaker-name">Prof. Kapil Hari Paranjape</div>
+        <div class="speaker-affiliation">IISER Mohali</div>
+        <div class="talk-date">📅 12.07.2024</div>
+      </div>
+    </div>
+
+    <!-- Talk 16 -->
+    <div class="card" data-search="balasubramanian sury rational cube sums binary cubic forms isi bangalore">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1Q8V8A0q69p6gtOb4KcRukHRwss7Tlwy4&sz=w800" alt="Prof. Balasubramanian Sury">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #16</span>
+        <h2 class="talk-title">Rational Cube Sums and Binary Cubic Forms</h2>
+        <div class="speaker-name">Prof. Balasubramanian Sury</div>
+        <div class="speaker-affiliation">Indian Statistical Institute (ISI), Bangalore</div>
+        <div class="talk-date">📅 22.08.2024</div>
+      </div>
+    </div>
+
+    <!-- Talk 17 -->
+    <div class="card" data-search="parameswaran ramified maps riemann surfaces ksom">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1HbYIa15brxlVET9jafiIVGVYBn2UoIWU&sz=w800" alt="Prof. Parameswaran A. J.">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #17</span>
+        <h2 class="talk-title">Genuinely Ramified Maps of Riemann Surfaces</h2>
+        <div class="speaker-name">Prof. Parameswaran A. J.</div>
+        <div class="speaker-affiliation">NBHM Professor, Kerala School of Mathematics (KSOM)</div>
+        <div class="talk-date">📅 08.10.2024</div>
+      </div>
+    </div>
+
+    <!-- Talk 18 -->
+    <div class="card" data-search="jaydeb sarkar how google google isi bangalore">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1Cf4ceBvy_ZMZ5wZOWz_2LSbLbxwb-8H-&sz=w800" alt="Prof. Jaydeb Sarkar">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #18</span>
+        <h2 class="talk-title">How Google google?</h2>
+        <div class="speaker-name">Prof. Jaydeb Sarkar</div>
+        <div class="speaker-affiliation">Indian Statistical Institute (ISI), Bangalore</div>
+        <div class="talk-date">📅 17.10.2024</div>
+      </div>
+    </div>
+
+    <!-- Talk 19 -->
+    <div class="card" data-search="harish seshadri geometry kahler manifolds iisc">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1fkuf72M3PYlEE-oNsll60kr3UVcc1Ohb&sz=w800" alt="Prof. Harish Seshadri">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #19</span>
+        <h2 class="talk-title">Comparison geometry of positively curved Kahler manifolds</h2>
+        <div class="speaker-name">Prof. Harish Seshadri</div>
+        <div class="speaker-affiliation">Indian Institute of Science (IISc), Bangalore</div>
+        <div class="talk-date">📅 15.01.2025</div>
+      </div>
+    </div>
+
+    <!-- Talk 20 -->
+    <div class="card" data-search="tes raghavan totally positive matrices perron frobenius uic">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1T7etjpEecK6PgCru5DFg8V_v7TRVEZ3A&sz=w800" alt="Prof. T. E.S. Raghavan">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #20</span>
+        <h2 class="talk-title">Spectral properties of totally positive matrices via minimax & Perron Frobenius theorem</h2>
+        <div class="speaker-name">Prof. T. E.S. Raghavan</div>
+        <div class="speaker-affiliation">Emeritus Professor, University of Illinois at Chicago</div>
+        <div class="talk-date">📅 20.01.2025</div>
+      </div>
+    </div>
+
+    <!-- Talk 21 -->
+    <div class="card" data-search="k c sivakumar inverse tridiagonal matrices iit madras">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1Jvc2gq832DWteJyZZjg-Ikn343QyLy0P&sz=w800" alt="Prof. K.C. Sivakumar">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #21</span>
+        <h2 class="talk-title">Inverse tridiagonal matrices</h2>
+        <div class="speaker-name">Prof. K.C. Sivakumar</div>
+        <div class="speaker-affiliation">Department of Mathematics, IIT Madras</div>
+        <div class="talk-date">📅 24.02.2025</div>
+      </div>
+    </div>
+
+    <!-- Talk 22 -->
+    <div class="card" data-search="c s rajan spectrum geometry arithmetic ashoka">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=12bz_LqKP_I0SKwk-5gyiyQP7nRgZ5HDF&sz=w800" alt="Prof. C. S. Rajan">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #22</span>
+        <h2 class="talk-title">On Spectrum, Geometry and Arithmetic</h2>
+        <div class="speaker-name">Prof. C. S. Rajan</div>
+        <div class="speaker-affiliation">Ashoka University, Sonipat, Haryana</div>
+        <div class="talk-date">📅 01.05.2025</div>
+      </div>
+    </div>
+
+    <!-- Talk 23 -->
+    <div class="card" data-search="anirban chakraborti complexity data science jnu">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1gfBHthBVNmBaDnMGgomdMaywiKF7zbaW&sz=w800" alt="Prof. Anirban Chakraborti">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #23</span>
+        <h2 class="talk-title">Mathematics, Complexity and Data Science: Markets to Environment</h2>
+        <div class="speaker-name">Prof. Anirban Chakraborti</div>
+        <div class="speaker-affiliation">Jawaharlal Nehru University (JNU), New Delhi</div>
+        <div class="talk-date">📅 11.09.2025</div>
+      </div>
+    </div>
+
+    <!-- Talk 24 -->
+    <div class="card" data-search="chandan singh dalawat oldest problem ashoka">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1Mg1PfNuQMvxeW2xGtV5NC0P1LLu9MjZ3&sz=w800" alt="Prof. Chandan Singh Dalawat">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #24</span>
+        <h2 class="talk-title">The Oldest Problem</h2>
+        <div class="speaker-name">Prof. Chandan Singh Dalawat</div>
+        <div class="speaker-affiliation">Visiting Professor, Ashoka University</div>
+        <div class="talk-date">📅 12.03.2026</div>
+      </div>
+    </div>
+
+    <!-- Talk 25 -->
+    <div class="card" data-search="takao komatsu stirling numerical semigroups henan">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1gcJlkjQ4LjIx9sOxRWpbhZq0IokxYjaa&sz=w800" alt="Prof. Takao Komatsu">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #25</span>
+        <h2 class="talk-title">Stirling numerical semigroups</h2>
+        <div class="speaker-name">Prof. Takao Komatsu</div>
+        <div class="speaker-affiliation">Henan Academy of Sciences</div>
+        <div class="talk-date">📅 26.03.2026</div>
+      </div>
+    </div>
+
+    <!-- Talk 26 -->
+    <div class="card" data-search="sameep mehta data ai ibm research">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1W7XxPbUZzpfAjqQ6KIRTkog4xVY2prD7&sz=w800" alt="Dr. Sameep Mehta">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #26</span>
+        <h2 class="talk-title">Data - Enabling the Build and Consumption of AI</h2>
+        <div class="speaker-name">Dr. Sameep Mehta</div>
+        <div class="speaker-affiliation">IBM Distinguished Engineer, IBM Research AI</div>
+        <div class="talk-date">📅 09.04.2026</div>
+      </div>
+    </div>
+
+    <!-- Talk 27 -->
+    <div class="card" data-search="soumitro banerjee order to chaos nonlinear dynamics iiser kolkata">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1dRU-O7HqsLskzxxCNZdgwBh9IE3ePzWS&sz=w800" alt="Prof. Soumitro Banerjee">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #27</span>
+        <h2 class="talk-title">From Order to Chaos: Exploring Nonlinear Dynamics</h2>
+        <div class="speaker-name">Prof. Soumitro Banerjee</div>
+        <div class="speaker-affiliation">Retired Professor, Dept. of Physical Sciences, IISER Kolkata</div>
+        <div class="talk-date">📅 16.04.2026</div>
+      </div>
+    </div>
+
+    <!-- Talk 28 -->
+    <div class="card" data-search="debasis kundu periodic data statistical perspectives iit kanpur">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1UTMvYpMnf9pGc_TeePLmVMGR3r563dfO&sz=w800" alt="Prof. Debasis Kundu">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #28</span>
+        <h2 class="talk-title">Analyzing Periodic Data: Statistical Perspectives</h2>
+        <div class="speaker-name">Prof. Debasis Kundu</div>
+        <div class="speaker-affiliation">Dept. of Statistics and Data Science, IIT Kanpur</div>
+        <div class="talk-date">📅 10.09.2026</div>
+      </div>
+    </div>
+
+    <!-- Talk 29 -->
+    <div class="card" data-search="amalendu krishna rational points brauer group ucsb">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=1NijjDWIniBOsXMjKrAh6W-xVrKMAhf_g&sz=w800" alt="Prof. Amalendu Krishna">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #29</span>
+        <h2 class="talk-title">Rational Points and Brauer Group</h2>
+        <div class="speaker-name">Prof. Amalendu Krishna</div>
+        <div class="speaker-affiliation">University of California, Santa Barbara (UCSB)</div>
+        <div class="talk-date">📅 17.09.2026</div>
+      </div>
+    </div>
+
+    <!-- Talk 30 -->
+    <div class="card" data-search="ganesh bagler computational gastronomy ai iiit delhi">
+      <div class="poster-img-wrapper">
+        <img src="https://drive.google.com/thumbnail?id=19Yq7jhGHGZNHS9dGa8VzBhOKi3I2qzIh&sz=w800" alt="Prof. Ganesh Bagler">
+      </div>
+      <div class="card-body">
+        <span class="talk-num">Talk #30</span>
+        <h2 class="talk-title">Computational Gastronomy: Blending Food with Artificial Intelligence</h2>
+        <div class="speaker-name">Prof. Ganesh Bagler</div>
+        <div class="speaker-affiliation">Infosys Centre for AI, IIIT-Delhi</div>
+        <div class="talk-date">📅 24.09.2026</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function filterTalks() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.getElementsByClassName('card');
+      let visibleCount = 0;
+
+      for (let i = 0; i < cards.length; i++) {
+        const searchText = cards[i].getAttribute('data-search') + ' ' + cards[i].innerText.toLowerCase();
+        if (searchText.includes(input)) {
+          cards[i].style.display = 'flex';
+          visibleCount++;
+        } else {
+          cards[i].style.display = 'none';
+        }
+      }
+      document.getElementById('talkCount').innerText = `Showing ${visibleCount} of 30 Talks`;
+    }
+  </script>
+</body>
+</html>
