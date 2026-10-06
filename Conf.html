@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Conferences & Workshops</title>
+
+    <style>
+        :root {
+            --primary-blue: #1f3c88;
+            --bg-color: #f7f9fc;
+            --card-bg: #ffffff;
+            --text-main: #222;
+            --text-muted: #555;
+            --border-color: #e0e6f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 40px 20px;
+            color: var(--text-main);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+
+        .timeline-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .event-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px 25px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            display: flex;
+            gap: 20px;
+            border-left: 5px solid var(--primary-blue);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .year-badge {
+            background-color: var(--primary-blue);
+            color: white;
+            font-weight: 700;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            height: fit-content;
+            white-space: nowrap;
+        }
+
+        .event-content {
+            flex-grow: 1;
+        }
+
+        .event-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin: 0 0 8px 0;
+            line-height: 1.4;
+        }
+
+        .event-details {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .future-event {
+            border-left-color: #ef2f42; /* Red accent for upcoming events */
+        }
+
+        .future-event .year-badge {
+            background-color: #ef4f52;
+        }
+
+        @media screen and (max-width: 600px) {
+            .event-card {
+                flex-direction: column;
+                gap: 10px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Past Conferences, Workshops & Instructional Schools</h1>
+
+    <div class="timeline-container">
+
+        <!-- 2026 (Future/Upcoming) -->
+        <div class="event-card future-event">
+            <div class="year-badge">2026</div>
+            <div class="event-content">
+                <div class="event-title">Workshop on Matrices and Operators (MAO 2026)</div>
+                <div class="event-details">June 25–28, 2026 | Shiv Nadar University, Delhi NCR, India</div>
+            </div>
+        </div>
+
+        <!-- 2024 -->
+        <div class="event-card">
+            <div class="year-badge">2024</div>
+            <div class="event-content">
+                <div class="event-title">National Conference in Operator Theory and Function Spaces</div>
+                <div class="event-details"></div>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <div class="year-badge">2024</div>
+            <div class="event-content">
+                <div class="event-title">Teacher Enrichment Workshop</div>
+                <div class="event-details"></div>
+            </div>
+        </div>
+
+        <!-- 2023 -->
+        <div class="event-card">
+            <div class="year-badge">2023</div>
+            <div class="event-content">
+                <div class="event-title">Winter School on Games in Evolutionary Dynamics</div>
+                <div class="event-details"></div>
+            </div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="event-card">
+            <div class="year-badge">2022</div>
+            <div class="event-content">
+                <div class="event-title">Workshop on Zero Mean Curvature</div>
+                <div class="event-details"></div>
+            </div>
+        </div>
+
+        <!-- 2021 -->
+        <div class="event-card">
+            <div class="year-badge">2021</div>
+            <div class="event-content">
+                <div class="event-title">The Annual Foundation School (AFS-2) for PhD students</div>
+                <div class="event-details">Scheduled for May 2021 | Sponsored by the National Centre for Mathematics</div>
+            </div>
+        </div>
+
+        <!-- 2018 -->
+        <div class="event-card">
+            <div class="year-badge">2018</div>
+            <div class="event-content">
+                <div class="event-title">Annual Conference on Indian Women and Mathematics</div>
+                <div class="event-details"></div>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <div class="year-badge">2018</div>
+            <div class="event-content">
+                <div class="event-title">National Conference on Cross-Disciplinary Application of Complex Networks</div>
+                <div class="event-details"></div>
+            </div>
+        </div>
+
+        <!-- 2016 -->
+        <div class="event-card">
+            <div class="year-badge">2016</div>
+            <div class="event-content">
+                <div class="event-title">The Mathematical Training and Talent Search program</div>
+                <div class="event-details">Scheduled for June 2016 | Sponsored by the National Board for Higher Mathematics</div>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <div class="year-badge">2016</div>
+            <div class="event-content">
+                <div class="event-title">Advanced Instructional School on Matrix Analysis</div>
+                <div class="event-details">2 – 21 May, 2016</div>
+            </div>
+        </div>
+
+        <!-- 2015 -->
+        <div class="event-card">
+            <div class="year-badge">2015</div>
+            <div class="event-content">
+                <div class="event-title">The Mathematical Training and Talent Search program</div>
+                <div class="event-details">Scheduled for June 2015 | Sponsored by the National Board for Higher Mathematics</div>
+            </div>
+        </div>
+
+        <div class="event-card">
+            <div class="year-badge">2015</div>
+            <div class="event-content">
+                <div class="event-title">The Annual Foundation School for PhD students</div>
+                <div class="event-details">Scheduled for May 2015 | Sponsored by the National Centre for Mathematics</div>
+            </div>
+        </div>
+        <div class="event-card">
+            <div class="year-badge">2015</div>
+            <div class="event-content">
+                <div class="event-title"> Interdisciplinary Conference on the Science and Applications of Networks</div>
+                <div class="event-details">Scheduled: 20th March to 22nd March, 2015. </div>
+            </div>
+        </div>
+
+
+       <!-- 2012 -->
+        <div class="event-card">
+            <div class="year-badge">2012</div>
+            <div class="event-content">
+                <div class="event-title">The 27th Annual Conference of the Ramanujan Mathematical Society</div>
+                <div class="event-details"></div>
+            </div>
+        </div>
+
+        <!-- 2011 -->
+        <div class="event-card">
+            <div class="year-badge">2011</div>
+            <div class="event-content">
+                <div class="event-title">The Northern Regional Conference of the National Initiative in Mathematics Education</div>
+                <div class="event-details">Co-hosted with Ambedkar University, Delhi</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
