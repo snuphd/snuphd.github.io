@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department of Mathematics - Student Directory</title>
+    <style>
+        :root {
+            --bsc-theme: #1e40af;
+            --msc-theme: #065f46;
+            --phd-theme: #831843;
+            --bg-canvas: #f8fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-canvas);
+            color: var(--text-primary);
+            padding: 15px;
+            font-size: 13px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+        }
+
+        .header h1 {
+            font-size: 1.4rem;
+            color: var(--text-primary);
+        }
+
+        .header p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* 3-Column Layout */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            align-items: start;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .column-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            max-height: 85vh;
+        }
+
+        .column-title {
+            padding: 10px 14px;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .column-title.bsc { background-color: var(--bsc-theme); }
+        .column-title.msc { background-color: var(--msc-theme); }
+        .column-title.phd { background-color: var(--phd-theme); }
+
+        .count-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+        }
+
+        .column-body {
+            padding: 10px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        /* Year Batch Box */
+        .batch-box {
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 8px;
+            background: #fafafa;
+        }
+
+        .batch-header {
+            font-weight: 700;
+            font-size: 0.82rem;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 3px;
+            margin-bottom: 6px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Compact multi-column student name grid */
+        .student-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 4px;
+        }
+
+        .student-item {
+            background: #ffffff;
+            border: 1px solid #edf2f7;
+            padding: 4px 6px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            line-height: 1.25;
+            word-break: break-word;
+        }
+
+        /* Highlight Dual Degree Students */
+        .highlight-dual {
+            background-color: #fff7ed !important;
+            border: 1px solid #fdba74 !important;
+        }
+
+        .dual-badge {
+            display: inline-block;
+            background-color: #ea580c;
+            color: #ffffff;
+            font-size: 0.65rem;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-weight: 600;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Department of Mathematics — Student Directory</h1>
+        <p>Program-wise & Batch-wise Classification (Roll numbers omitted)</p>
+    </div>
+
+    <div class="grid-container">
+
+        <!-- ================= B.Sc. COLUMN ================= -->
+        <div class="column-card">
+            <div class="column-title bsc">
+                <span>B.Sc. (Research)</span>
+                <span class="count-badge">150 Students</span>
+            </div>
+            <div class="column-body">
+
+                <!-- 2015 Batch -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2015 <span>(First Batch)</span></div>
+                    <div class="student-grid">
+                        <div class="student-item"><b>Rupakshi Bhatia</b></div>
+                        <div class="student-item">Anusha Sri Vaishnavi D.</div>
+                        <div class="student-item">Chandrashekhar Upadhyay</div>
+                        <div class="student-item">Ganesh Gupta</div>
+                        <div class="student-item">Laavanya Sundeep</div>
+                        <div class="student-item">Nitish Thakurele</div>
+                        <div class="student-item highlight-dual">
+                            <b>Nipun Thakurele</b><br>
+                            <span class="dual-badge">B.Sc + M.Sc</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2016 Batch -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2016</div>
+                    <div class="student-grid">
+                        <div class="student-item">Ananya Kaushik</div>
+                        <div class="student-item">Ankit Dwivedi</div>
+                        <div class="student-item">Bhamidipati Deewang</div>
+                        <div class="student-item">Khushboo Bano</div>
+                        <div class="student-item highlight-dual">
+                            <b>Nisha Chaudhary</b><br>
+                            <span class="dual-badge">B.Sc + M.Sc</span>
+                        </div>
+                        <div class="student-item">Shivakshi Bhardwaj</div>
+                    </div>
+                </div>
+
+                <!-- 2017 Batch -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2017</div>
+                    <div class="student-grid">
+                        <div class="student-item">Sabyasachi Mukherjee</div>
+                    </div>
+                </div>
+
+                <!-- 2018 Batch -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2018</div>
+                    <div class="student-grid">
+                        <div class="student-item">Aanchal Gupta</div>
+                        <div class="student-item">Aninya Gangal</div>
+                        <div class="student-item">Bharath Sivakumar</div>
+                        <div class="student-item">Gurjot Singh</div>
+                        <div class="student-item">Kriti Garg</div>
+                        <div class="student-item">Meher Sandhu</div>
+                        <div class="student-item">Siddharth Srinivasan</div>
+                    </div>
+                </div>
+
+                <!-- 2019 Batch -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2019</div>
+                    <div class="student-grid">
+                        <div class="student-item">Aarushi Chawla</div>
+                        <div class="student-item">Akshay A Puri</div>
+                        <div class="student-item">Anshika Kapoor</div>
+                        <div class="student-item">Dhruvi Sharma</div>
+                        <div class="student-item">Harsh Prasad</div>
+                        <div class="student-item">Mudita Aneja</div>
+                        <div class="student-item">Namit Batra</div>
+                        <div class="student-item">Riya Dogra</div>
+                        <div class="student-item">Shubham Parashar</div>
+                        <div class="student-item">Shweta Kataria</div>
+                        <div class="student-item">Siddhant Malik</div>
+                        <div class="student-item">Srijan Bhushan</div>
+                        <div class="student-item">Tarini Anchan</div>
+                    </div>
+                </div>
+
+                <!-- 2020 Batch -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2020</div>
+                    <div class="student-grid">
+                        <div class="student-item">Abhijit J</div>
+                        <div class="student-item">Akshara</div>
+                        <div class="student-item">Anahita Sengar</div>
+                        <div class="student-item">Ayush Rawat</div>
+                        <div class="student-item">Jagriti Dhankhar</div>
+                        <div class="student-item">Kedar Pant</div>
+                        <div class="student-item">Kedar Upadhyaya</div>
+                        <div class="student-item">Kevin Kurien</div>
+                        <div class="student-item">Mallika Muralidharan</div>
+                        <div class="student-item">Medhini Sridharr</div>
+                        <div class="student-item">Nishank S</div>
+                        <div class="student-item">Praneet Srivastava</div>
+                        <div class="student-item">Priyanshu Ahuja</div>
+                        <div class="student-item">Sanket Dutta</div>
+                        <div class="student-item">Siddharth Koduri</div>
+                        <div class="student-item">Simran Prashar</div>
+                        <div class="student-item">Somya Bansal</div>
+                        <div class="student-item">Ujan Banerjee</div>
+                    </div>
+                </div>
+
+                <!-- 2021 Batch -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2021</div>
+                    <div class="student-grid">
+                        <div class="student-item">Abdul Hakeem</div>
+                        <div class="student-item">Anand R</div>
+                        <div class="student-item">Aniruddha Majumdar</div>
+                        <div class="student-item">Ayush Bohra</div>
+                        <div class="student-item">Chamarthy Pavan Varma</div>
+                        <div class="student-item">Chinmaya Venkataraman</div>
+                        <div class="student-item">Jatin Arora</div>
+                        <div class="student-item">Kunal Anilkumar</div>
+                        <div class="student-item">Kunal Bhardwaj</div>
+                        <div class="student-item">Prabhnoor Virk</div>
+                        <div class="student-item">Pranav Ravi Asrani</div>
+                        <div class="student-item">Puneet Pandey</div>
+                        <div class="student-item">S Aravind</div>
+                        <div class="student-item">Sanjana Srinivasan</div>
+                        <div class="student-item">Shubham Kumar</div>
+                        <div class="student-item">Shubham Verma</div>
+                        <div class="student-item">Siddharth Dixit</div>
+                    </div>
+                </div>
+
+                <!-- 2022 Batch -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2022</div>
+                    <div class="student-grid">
+                        <div class="student-item">Arijit Sen Gupta</div>
+                        <div class="student-item">Krupa Manishkumar Desai</div>
+                        <div class="student-item">Mann Jitendra Gupta</div>
+                        <div class="student-item">Mansi Goel</div>
+                        <div class="student-item">Manu Tyagi</div>
+                        <div class="student-item">Nupur Nautiyal</div>
+                        <div class="student-item">Samyak Nayak</div>
+                        <div class="student-item">Shubhashish Chauhan</div>
+                        <div class="student-item">Tania Praveen</div>
+                        <div class="student-item">Yash Jolly</div>
+                    </div>
+                </div>
+
+                <!-- 2023 Batch -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2023</div>
+                    <div class="student-grid">
+                        <div class="student-item">Aakash Gopinath</div>
+                        <div class="student-item">Adhitya Swaminathan</div>
+                        <div class="student-item">Akshay Jayakumar</div>
+                        <div class="student-item">Alok Kumar</div>
+                        <div class="student-item">Aravindan T S</div>
+                        <div class="student-item">Divyanshu Rao</div>
+                        <div class="student-item">Gautham Mahesh</div>
+                        <div class="student-item">Ishan Dasgupta S.</div>
+                        <div class="student-item">J Aparna</div>
+                        <div class="student-item">Kathyayani Rana</div>
+                        <div class="student-item">Rashiqa Dawood</div>
+                        <div class="student-item">Sakshi Shubh</div>
+                        <div class="student-item">Samhitha Prathivadi</div>
+                        <div class="student-item">Saurav Ranjan</div>
+                        <div class="student-item">Sneh Bhandari</div>
+                        <div class="student-item">Swati G</div>
+                        <div class="student-item">Tanvee Mehrotra</div>
+                        <div class="student-item">Yatih Mangal</div>
+                    </div>
+                </div>
+
+                <!-- 2024 Batch -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2024</div>
+                    <div class="student-grid">
+                        <div class="student-item">Aditya Arora</div>
+                        <div class="student-item">Anirudh Jayan</div>
+                        <div class="student-item">Anusha Anurag Jauhari</div>
+                        <div class="student-item">Arjun Vardhan</div>
+                        <div class="student-item">Ayanesh Lal</div>
+                        <div class="student-item">Chinmaya Nair</div>
+                        <div class="student-item">Diva Gopikrishnan</div>
+                        <div class="student-item">Naukshatro Bose</div>
+                        <div class="student-item">Prachi Chaudhary</div>
+                        <div class="student-item">S Sabarish Vinayak</div>
+                        <div class="student-item">Sanjana Nair</div>
+                        <div class="student-item">Sankrithi Krishna</div>
+                        <div class="student-item">Sri Mahaguhan S</div>
+                        <div class="student-item">Surya Raghunath</div>
+                        <div class="student-item">Syed Mohd Ali Kamil</div>
+                        <div class="student-item">Tushti Goyal</div>
+                        <div class="student-item">Vishal Chawla</div>
+                    </div>
+                </div>
+
+                <!-- 2025 Batch -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2025</div>
+                    <div class="student-grid">
+                        <div class="student-item">Arav Jain</div>
+                        <div class="student-item">Aryan Pahwa</div>
+                        <div class="student-item">Ashwani Garg</div>
+                        <div class="student-item">Chirag Kar</div>
+                        <div class="student-item">Harshita Shokeen</div>
+                        <div class="student-item">Kartikay Nautiyal</div>
+                        <div class="student-item">Lakshmi Narayanan S K</div>
+                        <div class="student-item">M Vishnu Kousik</div>
+                        <div class="student-item">Manan Mehta</div>
+                        <div class="student-item">N Swarna</div>
+                        <div class="student-item">Nalini Mehta</div>
+                        <div class="student-item">Pranav Verma</div>
+                        <div class="student-item">Priyal Gupta</div>
+                        <div class="student-item">R Sri Hari</div>
+                        <div class="student-item">S Narayanan</div>
+                        <div class="student-item">Varnana P</div>
+                        <div class="student-item">Venkata Subramaniam J</div>
+                        <div class="student-item">Vidur Uberoi</div>
+                        <div class="student-item">Vineet Kumar</div>
+                    </div>
+                </div>
+
+                <!-- 2026 Batch -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2026</div>
+                    <div class="student-grid">
+                        <div class="student-item">Ananya Vinodh Shankar</div>
+                        <div class="student-item">Aryaman Sen</div>
+                        <div class="student-item">Ashmit Agarwal</div>
+                        <div class="student-item">Bharat Rao Ashra</div>
+                        <div class="student-item">Gaurav Gupta</div>
+                        <div class="student-item">Jayin Khanna</div>
+                        <div class="student-item">Kavin Arasu</div>
+                        <div class="student-item">Khushi Bahuguna</div>
+                        <div class="student-item">Kripa Amarnath</div>
+                        <div class="student-item">Nikhil Nambiar</div>
+                        <div class="student-item">Pallavi</div>
+                        <div class="student-item">Praganya Singh</div>
+                        <div class="student-item">Reya Jeslyn Sahaya Samuel</div>
+                        <div class="student-item">Shireen Mita Vikas</div>
+                        <div class="student-item">Sonakshi Ganguli</div>
+                        <div class="student-item">Suryansh Musunuru</div>
+                        <div class="student-item">Tarunya Venkat</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ================= M.Sc. COLUMN ================= -->
+        <div class="column-card">
+            <div class="column-title msc">
+                <span>M.Sc. (PG)</span>
+                <span class="count-badge">11 Students</span>
+            </div>
+            <div class="column-body">
+
+                <!-- 2013 -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2013</div>
+                    <div class="student-grid">
+                        <div class="student-item">Manisha Jain</div>
+                    </div>
+                </div>
+
+                <!-- 2014 -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2014</div>
+                    <div class="student-grid">
+                        <div class="student-item">Mayank Roy</div>
+                    </div>
+                </div>
+
+                <!-- 2016 -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2016</div>
+                    <div class="student-grid">
+                        <div class="student-item highlight-dual">
+                            <b>Sushil Singla</b><br>
+                            <span class="dual-badge">M.Sc + Ph.D</span>
+                        </div>
+                        <div class="student-item">Himanshu Sharma</div>
+                        <div class="student-item">Preeti Nagar</div>
+                    </div>
+                </div>
+
+                <!-- 2017 -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2017</div>
+                    <div class="student-grid">
+                        <div class="student-item highlight-dual">
+                            <b>Nipun Thakurele</b><br>
+                            <span class="dual-badge">B.Sc + M.Sc</span>
+                        </div>
+                        <div class="student-item">Harman Kour</div>
+                        <div class="student-item">Kumar Ashutosh</div>
+                    </div>
+                </div>
+
+                <!-- 2018 -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2018</div>
+                    <div class="student-grid">
+                        <div class="student-item highlight-dual">
+                            <b>Nisha Chaudhary</b><br>
+                            <span class="dual-badge">B.Sc + M.Sc</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2021 -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2021</div>
+                    <div class="student-grid">
+                        <div class="student-item">Karnica Jain</div>
+                        <div class="student-item">Km. Pragati</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ================= Ph.D. COLUMN ================= -->
+        <div class="column-card">
+            <div class="column-title phd">
+                <span>Ph.D. (Doctoral)</span>
+                <span class="count-badge">31 Students</span>
+            </div>
+            <div class="column-body">
+
+                <!-- 2019 -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2019</div>
+                    <div class="student-grid">
+                        <div class="student-item">Devendra Prasad</div>
+                    </div>
+                </div>
+
+                <!-- 2020 -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2020</div>
+                    <div class="student-grid">
+                        <div class="student-item">Biswajit Koley</div>
+                        <div class="student-item">Monimala Nej</div>
+                        <div class="student-item">Shashankaditya Upadhyay</div>
+                    </div>
+                </div>
+
+                <!-- 2021 -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2021</div>
+                    <div class="student-grid">
+                        <div class="student-item">Aniruddha Deka</div>
+                        <div class="student-item">Samir Kumar Hazra</div>
+                    </div>
+                </div>
+
+                <!-- 2022 -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2022</div>
+                    <div class="student-grid">
+                        <div class="student-item highlight-dual">
+                            <b>Sushil Singla</b><br>
+                            <span class="dual-badge">M.Sc + Ph.D</span>
+                        </div>
+                        <div class="student-item">Charu Sharma</div>
+                    </div>
+                </div>
+
+                <!-- 2023 -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2023</div>
+                    <div class="student-grid">
+                        <div class="student-item">Bhawna Malik</div>
+                        <div class="student-item">Rahul Majethia</div>
+                        <div class="student-item">Sushant Pokhriyal</div>
+                        <div class="student-item">Veer Singh</div>
+                    </div>
+                </div>
+
+                <!-- 2024 -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2024</div>
+                    <div class="student-grid">
+                        <div class="student-item">Apoorva Singh</div>
+                        <div class="student-item">Shivani Chauhan</div>
+                    </div>
+                </div>
+
+                <!-- 2025 -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2025</div>
+                    <div class="student-grid">
+                        <div class="student-item">Anu Dhochak</div>
+                        <div class="student-item">Bharat Pratap Chauhan</div>
+                        <div class="student-item">Km. Amrita Singh</div>
+                        <div class="student-item">Laxmi</div>
+                        <div class="student-item">Shrinit Singh</div>
+                        <div class="student-item">Suhith K N</div>
+                        <div class="student-item">Udit Raj</div>
+                        <div class="student-item">Khyati Sharma</div>
+                        <div class="student-item">Viney Kumar</div>
+                    </div>
+                </div>
+
+                <!-- 2026 -->
+                <div class="batch-box">
+                    <div class="batch-header">Batch 2026</div>
+                    <div class="student-grid">
+                        <div class="student-item">Arshad Khan</div>
+                        <div class="student-item">Imran Ansari</div>
+                        <div class="student-item">Kavita Samant</div>
+                        
+                        <div class="student-item">Manoj Upreti</div>
+                        <div class="student-item">Pawanesh</div>
+                        <div class="student-item">Renu Saraswat</div>
+                        <div class="student-item">Rivu Bardhan</div>
+                        <div class="student-item">Sai Rasmi Ranjan M.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
